@@ -5,6 +5,10 @@ const inquirer = require("inquirer");
 inquirer.prompt({
   message: "Enter your GitHub username:",
   name: "username",
+  message: "Provide a description of your project",
+  name: "description",
+  message: "How do I install this program?",
+  name: "install",
 });
 // array of questions for user
 const questions = [];
