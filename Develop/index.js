@@ -13,6 +13,19 @@ inquirer
       name: "description",
       message: "What does your ReadMe do?",
     },
+    {
+      type: "checkbox",
+      name: "tableofcontents",
+      choices: ["Index", new inquirer.Separator(), "indexA"],
+    },
+    {
+      type: "input",
+      name: "installation",
+      message: "How do you install this app?",
+    },
+    {
+      type: "inpu",
+    },
   ])
   .then((answers) => {
     console.info("Answer:", answers.title);
