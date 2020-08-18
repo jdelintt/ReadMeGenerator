@@ -24,7 +24,24 @@ inquirer
       message: "How do you install this app?",
     },
     {
-      type: "inpu",
+      type: "list",
+      name: "license",
+      message: ["Choice1", "Choice2"],
+    },
+    {
+      type: "input",
+      name: "contributing",
+      message: "What is allowed on this site?",
+    },
+    {
+      type: "input",
+      name: "test",
+      message: "How do you run this code?",
+    },
+    {
+      type: "input",
+      name: "questions",
+      message: "Do you have any questions?",
     },
   ])
   .then((answers) => {
