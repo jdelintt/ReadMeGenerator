@@ -1,7 +1,5 @@
 const fs = require("fs");
-
 const inquirer = require("inquirer");
-("use strict");
 
 var questions = [
   {
@@ -17,7 +15,16 @@ var questions = [
   {
     type: "checkbox",
     name: "tableofcontents",
-    choices: ["Index", new inquirer.Separator(), "indexA"],
+    choices: [
+      "Title" + "\n",
+      "Description" + "\n",
+      "Table of Contents" + "\n",
+      "Installation" + "\n",
+      "License" + "\n",
+      "Contributing" + "\n",
+      "Test" + "\n",
+      "Questions",
+    ],
   },
   {
     type: "input",
@@ -26,9 +33,9 @@ var questions = [
   },
 
   {
-    type: "list",
+    type: "checkbox",
     name: "license",
-    message: ["Choice1", "Choice2"],
+    choices: ["Apache", "MIT"],
   },
   {
     type: "input",
@@ -48,6 +55,16 @@ var questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  console.log("\nOrder receipt:");
-  console.log(JSON.stringify(answers, null, "  "));
+  console.log(answers.title);
+  const readMe = `${answers.title}  \n
+ ${answers.description} \n 
+  ${answers.tableofcontents} \n
+  ${answers.installation} \n
+  ${answers.license} \n
+  ${answers.contributing} \n
+  ${answers.test} \n
+  ${answers.questions}
+  `;
+
+  fs.writeFile("readme.md", readMe, (err) => console.log(err || "success!"));
 });
